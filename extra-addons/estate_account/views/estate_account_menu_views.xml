@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Top menu item -->
+    <menuitem id="estate_account_menu_root"
+                name="Real Estate"
+                sequence="2"
+                web_icon="estate,static/description/icon2.png"/>
+</odoo>

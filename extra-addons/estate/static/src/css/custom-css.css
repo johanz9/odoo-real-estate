@@ -1,0 +1,4 @@
+
+.remove_border td{
+    border-right:1px solid transparent !important;;
+}

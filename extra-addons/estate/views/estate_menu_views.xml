@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Top menu item -->
+    <menuitem id="estate_property_menu_root"
+                name="Real Estate"
+                sequence="1"
+                web_icon="estate,static/description/icon2.png"/>
+
+    <!-- Property menu item -->
+    <menuitem id="estate_property_first_level_menu"
+              name="Advertisement"
+              parent="estate_property_menu_root"
+              sequence="10"/>
+
+    <menuitem id="estate_property_model_menu_action"
+              name="Properties"
+              parent="estate_property_first_level_menu"
+              action="estate_property_action"
+              sequence="10"/>
+
+    <!-- Property Setting menu item -->
+    <menuitem id="estate_property_setting"
+              name="Setting"
+              parent="estate_property_menu_root"
+              sequence="10"/>
+
+    <menuitem id="estate_property_type_model_menu_action"
+              name="Property Types"
+              parent="estate_property_setting"
+              action="estate_property_type_action"
+              sequence="10"/>
+
+    <menuitem id="estate_property_tag_model_menu_action"
+              name="Property Tags"
+              parent="estate_property_setting"
+              action="estate_property_tag_action"
+              sequence="10"/>
+
+    <!-- OFFERS DEADLINE -->
+
+    <menuitem id="estate_property_offer_deadline_menu_action"
+              name="Offers Deadline"
+              parent="estate_property_menu_root"
+              action="estate_property_offer_deadline_action"
+              sequence="10"/>
+
+
+</odoo>
