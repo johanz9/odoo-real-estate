@@ -3,3 +3,8 @@ access_estate_property_model,estate.property.model,model_estate_property,base.gr
 access_estate_property_type_model,estate.property.type.model,model_estate_property_type,base.group_user,1,1,1,1
 access_estate_property_tag_model,estate.property.tag.model,model_estate_property_tag,base.group_user,1,1,1,1
 access_estate_property_offer_model,estate.property.offer.model,model_estate_property_offer,base.group_user,1,1,1,1
+access_estate_agent_tag_read,estate.agent.tag.read,model_estate_property_tag,estate_group_user,1,0,0,0
+access_estate_agent_type_read,estate.agent.type.read,model_estate_property_type,estate_group_user,1,0,0,0
+access_estate_property_manager,estate.manager.property.all,model_estate_property,estate_group_manager,1,1,1,1
+access_estate_property_type_manager,estate.manager.property.type.all,model_estate_property_type,estate_group_manager,1,1,1,1
+access_estate_property_tag_manager,estate.manager.property.tag.all,model_estate_property_tag,estate_group_manager,1,1,1,1

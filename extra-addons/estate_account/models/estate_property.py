@@ -7,7 +7,8 @@ class Property(models.Model):
     # override sold action
     def sold_property(self):
         print("WOW IT WORK")
-        journal = self.env['account.move'].with_context(default_move_type='out_invoice')._get_default_journal()
+        #sudo bypass right and rules
+        journal = self.env['account.move'].with_context(default_move_type='out_invoice').sudo()._get_default_journal()
 
         # create invoice line
         invoice_lines = [

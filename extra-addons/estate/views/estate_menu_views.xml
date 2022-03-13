@@ -30,6 +30,7 @@
               action="estate_property_type_action"
               sequence="10"/>
 
+    <!--groups="estate_group_manager" for hide the menu quien no este en el grupo-->
     <menuitem id="estate_property_tag_model_menu_action"
               name="Property Tags"
               parent="estate_property_setting"

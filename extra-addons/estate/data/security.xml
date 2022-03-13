@@ -19,4 +19,20 @@
         <field name="implied_ids" eval="[(4, ref('estate_group_user'))]"/>
     </record>
 
+    <record id="salesman_ony_see_own_properties" model="ir.rule">
+        <field name="name">Salesperson can see only own properties</field>
+        <field name="model_id" ref="model_estate_property"/>
+        <field name="groups" eval="[(4, ref('estate_group_user'))]"/>
+        <field name = "perm_read" eval = "True" />
+        <field name = "perm_write" eval = "True" />
+        <field name="domain_force">['|',('salesman_id', '=', user.id),('salesman_id', '=', False)]</field>
+    </record>
+
+     <record id="manager_rule" model="ir.rule">
+        <field name="name">Manager can see all properties</field>
+        <field name="model_id" ref="model_estate_property"/>
+        <field name="groups" eval="[(4, ref('estate_group_manager'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
 </odoo>
