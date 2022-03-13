@@ -15,6 +15,7 @@
     ],
     'data': [
         'data/ir.model.access.csv',
+        'data/security.xml',
         'views/estate_menu_views.xml',
         'views/estate_property_view.xml',
         'views/estate_property_type_view.xml',
