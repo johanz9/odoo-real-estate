@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- PROPERTY TYPE DEMO -->
+        <record id="demo_residental" model="estate.property.type">
+            <field name="name">Residential</field>
+        </record>
+        <record id="demo_commercial" model="estate.property.type">
+            <field name="name">Commercial</field>
+        </record>
+        <record id="demo_industrial" model="estate.property.type">
+            <field name="name">Industrial</field>
+        </record>
+         <record id="demo_land" model="estate.property.type">
+            <field name="name">Land</field>
+        </record>
+
+         <!-- PROPERTY DEMO -->
+        <record id="demo_property_bigvilla" model="estate.property">
+            <field name="name">Big Villa</field>
+            <field name="state">New</field>
+            <field name="description">A nice and big villa</field>
+            <field name="postcode">12345</field>
+            <field name="date_availability">2020-02-02</field>
+            <field name="expected_price">1600000</field>
+            <field name="selling_price">0</field>
+            <field name="bedrooms">6</field>
+            <field name="living_area">100</field>
+            <field name="facades">4</field>
+            <field name="garage">True</field>
+            <field name="garden">True</field>
+            <field name="garden_area">100000</field>
+            <field name="garden_orientation">South</field>
+        </record>
+        <record id="demo_property_trailer_home" model="estate.property">
+            <field name="name">Trailer home</field>
+            <field name="state">Canceled</field>
+            <field name="description">Home in a trailer park</field>
+            <field name="postcode">54321</field>
+            <field name="date_availability">1970-01-01</field>
+            <field name="expected_price">100000</field>
+            <field name="selling_price">120000</field>
+            <field name="bedrooms">1</field>
+            <field name="living_area">10</field>
+            <field name="facades">4</field>
+            <field name="garage">False</field>
+            <field name="garden">False</field>
+            <field name="garden_area">0</field>
+        </record>
+        <record id="demo_property_land_milan" model="estate.property">
+            <field name="name">Land Milan</field>
+            <field name="state">New</field>
+            <field name="description">Land in MIlan</field>
+            <field name="postcode">54321</field>
+            <field name="date_availability" eval="datetime.now()"/>
+            <field name="expected_price">100000</field>
+            <field name="selling_price">120000</field>
+            <field name="bedrooms">1</field>
+            <field name="living_area">10</field>
+            <field name="facades">4</field>
+            <field name="garage">False</field>
+            <field name="garden">False</field>
+            <field name="garden_area">0</field>
+            <field name="offer_ids" eval="[
+                (0, 0, {
+                    'price': 10000,
+                    'partner_id': ref('base.res_partner_12')
+                })
+            ]"/>
+        </record>
+
+        <!-- PROPERTY OFFERS DEMO -->
+        <record id="demo_property_offer_01" model="estate.property.offer">
+            <field name="partner_id" ref="base.res_partner_12"/>
+            <field name="property_id" ref="estate.demo_property_bigvilla"/>
+            <field name="price">10000</field>
+            <field name="validity">14</field>
+        </record>
+        <record id="demo_property_offer_02" model="estate.property.offer">
+            <field name="partner_id" ref="base.res_partner_12"/>
+            <field name="property_id" ref="estate.demo_property_bigvilla"/>
+            <field name="price">1500000</field>
+            <field name="validity">14</field>
+        </record>
+        <record id="demo_property_offer_03" model="estate.property.offer">
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="property_id" ref="estate.demo_property_bigvilla"/>
+            <field name="price">1500001</field>
+            <field name="validity">14</field>
+        </record>
+
+        <!-- Call action buttons -->
+        <function model="estate.property.offer" name="accept_offer">
+            <value eval="[ref('estate.demo_property_offer_03')]"/>
+        </function>
+        <function model="estate.property.offer" name="refuse_offer">
+            <value eval="[ref('estate.demo_property_offer_01'),ref('estate.demo_property_offer_02')]"/>
+        </function>
+    </data>
+</odoo>

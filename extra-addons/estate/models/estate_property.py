@@ -41,9 +41,9 @@ class Property(models.Model):
     bedrooms = fields.Integer(string="Bedrooms", required=True, default=2)
     living_area = fields.Integer(string="Living Area (sqm)", required=True)
     facades = fields.Integer(string="Facades", required=True)
-    garage = fields.Boolean(string="Garage", required=True)
-    garden = fields.Boolean(string="Garden", required=True)
-    garden_area = fields.Integer(string="Garden Area (sqm)", required=True)
+    garage = fields.Boolean(string="Garage", required=False)
+    garden = fields.Boolean(string="Garden", required=False)
+    garden_area = fields.Integer(string="Garden Area (sqm)", required=False)
     garden_orientation = fields.Selection(string='Garden Orientation', selection=SELECTION, help="Help example")
 
     active = fields.Boolean(string='Active', default=True, invisible=True)
@@ -66,11 +66,15 @@ class Property(models.Model):
     best_price = fields.Float(string="Best Price", compute="_get_best_price")
     color = fields.Integer(string="Index Color", default=0)
 
+    company_id = fields.Many2one('res.company', string='Company', index=True,
+                                  default=lambda self: self.env.company.id)
+
     _sql_constraints = [
         ('check_living_area', 'CHECK(living_area >= 1)', 'The number of living area can\'t be zero or less.'),
         ('check_expected_price', 'CHECK(expected_price >= 0)', 'The expected price must be strictly positive'),
         ('check_selling_price', 'CHECK(selling_price >= 0)', 'The selling price must be strictly positive'),
     ]
+
 
     # for computed field
     @api.depends("living_area", "garden_area")

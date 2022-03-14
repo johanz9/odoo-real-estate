@@ -22,12 +22,14 @@
     <menuitem id="estate_property_setting"
               name="Setting"
               parent="estate_property_menu_root"
+              groups="estate_group_manager"
               sequence="10"/>
 
     <menuitem id="estate_property_type_model_menu_action"
               name="Property Types"
               parent="estate_property_setting"
               action="estate_property_type_action"
+              groups="estate_group_manager"
               sequence="10"/>
 
     <!--groups="estate_group_manager" for hide the menu quien no este en el grupo-->
@@ -35,6 +37,7 @@
               name="Property Tags"
               parent="estate_property_setting"
               action="estate_property_tag_action"
+              groups="estate_group_manager"
               sequence="10"/>
 
     <!-- OFFERS DEADLINE -->
